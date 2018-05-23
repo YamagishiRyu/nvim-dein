@@ -7,10 +7,13 @@ set t_Co=256
 set mouse=a
 set lazyredraw
 
+colorscheme ron
+
 "Coq
 autocmd FileType coq highlight SentToCoq ctermbg=17 guibg=#000080
 "md
 autocmd BufRead,BufNewFile *.md  setfiletype mkd
+filetype plugin indent on
 
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME

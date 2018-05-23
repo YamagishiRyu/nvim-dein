@@ -18,8 +18,22 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
+  let g:python_host_prog = '$HOME/Library/Python/2.7/bin/:$PATH'
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+'''
+
+# deoplete rust
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+on_ft = 'rust'
+depends = ['deoplete.nvim']
+hook_source = '''
+    let g:deoplete#sources#rust#rust_source_path='{$(rustc --print sysroot)/lib/rustlib/src/rust/srcを書く}'
+    let g:deoplete#sources#rust#show_duplicates=1
+    let g:deoplete#sources#rust#disable_keymap=1
+    nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
+    nmap <buffer> K  <plug>DeopleteRustShowDocumentation
 '''
 
 #indent hilight
@@ -59,15 +73,16 @@ hook_add = '''
     \ 'command' : 'g++',
     \ 'cmdopt' : '-std=c++11',
     \},
-    \'markdown' : {
-    \  'outputter': 'browser'
-    \},
     \}
 '''
 
 # preview
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+
+# search
+[[plugins]]
+repo = 'nelstrom/vim-visual-star-search'
 
 #syntax
 ##tex
@@ -78,6 +93,22 @@ repo = 'gi1242/vim-tex-syntax'
 [[plugins]]
 repo = 'tpope/vim-fugitive' 
 
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
 # markdown
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
+
+[[plugins]]
+repo = 'rhysd/nyaovim-markdown-preview'
+
+# rust
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+  let g:rustfmt_autosave = 1
+'''
