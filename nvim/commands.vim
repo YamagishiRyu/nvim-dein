@@ -1,0 +1,1 @@
+command YYYYYYY tabe %:h

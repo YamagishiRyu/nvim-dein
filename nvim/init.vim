@@ -6,8 +6,23 @@ set cursorline
 set t_Co=256
 set mouse=a
 set lazyredraw
+set completeopt-=preview
+set rtp+=/usr/local/opt/fzf
 
 colorscheme ron
+
+:imap <c-h> <Left>
+:imap <c-l> <Right>
+
+" file type
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
 
 "Coq
 autocmd FileType coq highlight SentToCoq ctermbg=17 guibg=#000080
@@ -63,6 +78,7 @@ endif
 if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
-
-
 " }}}
+
+" 自作commandを読み込む
+source ~/.config/nvim/commands.vim

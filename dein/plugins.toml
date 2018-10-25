@@ -14,29 +14,11 @@ hook_add = '''
   au MyAutoCmd VimEnter * highlight Search ctermbg=5
 '''
 
-# deoplete
+# snippet
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  let g:python_host_prog = '$HOME/Library/Python/2.7/bin/:$PATH'
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
-'''
+repo = 'Shougo/neosnippet-snippets'
 
-# deoplete rust
-[[plugins]]
-repo = 'sebastianmarkow/deoplete-rust'
-on_ft = 'rust'
-depends = ['deoplete.nvim']
-hook_source = '''
-    let g:deoplete#sources#rust#rust_source_path='{$(rustc --print sysroot)/lib/rustlib/src/rust/srcを書く}'
-    let g:deoplete#sources#rust#show_duplicates=1
-    let g:deoplete#sources#rust#disable_keymap=1
-    nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
-    nmap <buffer> K  <plug>DeopleteRustShowDocumentation
-'''
-
-#indent hilight
+# indent highlight
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
@@ -84,26 +66,44 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'nelstrom/vim-visual-star-search'
 
-#syntax
-##tex
-[[plugins]]
-repo = 'gi1242/vim-tex-syntax'
-
-#git 
+# git 
 [[plugins]]
 repo = 'tpope/vim-fugitive' 
 
-# toml
+#-----------------------------------------
+# debug
+#-----------------------------------------
+# go 
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
+repo = 'sebdah/vim-delve'
+
+#-----------------------------------------
+# fzf
+#-----------------------------------------
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+rtp = ''
+on_path = ['.*']
+hook_source = '''
+  let g:fzf_layout = { 'down': '~40%' }
+  let g:fzf_buffer_jump = 1
+'''
+
+#-----------------------------------------
+# syntax
+#-----------------------------------------
+# tex
+[[plugins]]
+repo = 'gi1242/vim-tex-syntax'
 
 # markdown
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
-
-[[plugins]]
-repo = 'rhysd/nyaovim-markdown-preview'
+hook_add = '''
+  let g:markdown_enable_spell_checking = 0
+'''
 
 # rust
 [[plugins]]
@@ -112,3 +112,21 @@ on_ft = 'rust'
 hook_source = '''
   let g:rustfmt_autosave = 1
 '''
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# go
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_source = '''
+  let g:go_snippet_engine = "neosnippet"
+  let g:go_list_type = "quickfix"
+'''
+
+# python
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python']
