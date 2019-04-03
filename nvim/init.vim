@@ -8,11 +8,16 @@ set mouse=a
 set lazyredraw
 set completeopt-=preview
 set rtp+=/usr/local/opt/fzf
+set rtp+=~/.config/nvim/plugins/
+set exrc
+set secure
 
 colorscheme ron
 
 :imap <c-h> <Left>
 :imap <c-l> <Right>
+:vmap <c-m> :s/\n//g<CR>:noh<CR>
+:vmap <c-i> :s/.\{35}/&\r/g<CR>:noh<CR>
 
 " file type
 augroup fileTypeIndent

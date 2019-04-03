@@ -26,7 +26,8 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
-  let g:python_host_prog = '$HOME/Library/Python/2.7/bin/'
+  let g:python_host_prog = expand('~/.pyenv/shims/python')
+  let g:python3_host_prog= expand('~/.pyenv/versions/3.6.5/bin/python3.6')
   let g:deoplete#enable_at_startup = 1
   inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" :
     \ neosnippet#expandable_or_jumpable() ?
@@ -68,24 +69,24 @@ on_path = ['.*']
 hook_source = '''
     let g:fzf_action = { 'enter': 'tab split'}
     let g:fzf_buffers_jump = 1
+    let g:fzf_tags_command = 'ctags -R ./.git/tags .'
     command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
     command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
       \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+    nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
 #-----------------------------------------
 # ctags
 #-----------------------------------------
-[[plugins]]
-repo = 'szw/vim-tags'
-hook_add = '''
-  let g:vim_tags_auto_generate = 1
-  let g:vim_tags_directories = [".git"]
-  nnoremap <C-]> g<C-]>
-'''
+# [[plugins]]
+# repo = 'szw/vim-tags'
+# hook_source = '''
+#   nnoremap <C-]> g<C-]>
+# '''
 
 #-----------------------------------------
 # syntax
