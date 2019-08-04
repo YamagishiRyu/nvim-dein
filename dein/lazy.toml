@@ -26,7 +26,7 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
-  let g:python_host_prog = expand('~/.pyenv/shims/python')
+  let g:python_host_prog = expand('/User/yamagishiryu/.pyenv/versions/2.7.15/bin/python2.7')
   let g:python3_host_prog= expand('~/.pyenv/versions/3.6.5/bin/python3.6')
   let g:deoplete#enable_at_startup = 1
   inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" :
@@ -94,3 +94,11 @@ hook_source = '''
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_i = 1
+on_ft = 'json'
+hook_source = '''
+  let g:vim_json_syntax_conceal = 0
+'''
