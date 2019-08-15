@@ -1,0 +1,12 @@
+{
+  "suggest.noselect": false,
+  "suggest.autoTrigger": "always",
+  "suggest.preferCompleteThanJumpPlaceholder":true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    }
+  }
+}
