@@ -23,41 +23,41 @@ depends = ['neosnippet-snippets']
 #-----------------------------------------
 
 # deoplete
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-  let g:python_host_prog = expand('/User/yamagishiryu/.pyenv/versions/2.7.15/bin/python2.7')
-  let g:python3_host_prog= expand('~/.pyenv/versions/3.6.5/bin/python3.6')
-  let g:deoplete#enable_at_startup = 1
-  inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" :
-    \ neosnippet#expandable_or_jumpable() ?
-    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-'''
-on_i = 1
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# hook_source = '''
+#  let g:python_host_prog = expand('/User/yamagishiryu/.pyenv/versions/2.7.15/bin/python2.7')
+#  let g:python3_host_prog= expand('~/.pyenv/versions/3.6.5/bin/python3.6')
+#  let g:deoplete#enable_at_startup = 1
+#  inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" :
+#    \ neosnippet#expandable_or_jumpable() ?
+#    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+# '''
+# on_i = 1
 
 # deoplete go
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-build = 'make'
-depends = ['deoplete.nvim']
-hook_source = '''
-  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-'''
+#[[plugins]]
+#repo = 'deoplete-plugins/deoplete-go'
+#on_ft = 'go'
+#build = 'make'
+#depends = ['deoplete.nvim']
+#hook_source = '''
+  #let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+  #let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+#'''
 
 # deoplete rust
-[[plugins]]
-repo = 'sebastianmarkow/deoplete-rust'
-on_ft = 'rust'
-depends = ['deoplete.nvim']
-hook_source = '''
-    let g:deoplete#sources#rust#rust_source_path='{$(rustc --print sysroot)/lib/rustlib/src/rust/srcを書く}'
-    let g:deoplete#sources#rust#show_duplicates=1
-    let g:deoplete#sources#rust#disable_keymap=1
-    nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
-    nmap <buffer> K  <plug>DeopleteRustShowDocumentation
-'''
+# [[plugins]]
+# repo = 'sebastianmarkow/deoplete-rust'
+# on_ft = 'rust'
+# depends = ['deoplete.nvim']
+# hook_source = '''
+#     let g:deoplete#sources#rust#rust_source_path='{$(rustc --print sysroot)/lib/rustlib/src/rust/srcを書く}'
+#     let g:deoplete#sources#rust#show_duplicates=1
+#     let g:deoplete#sources#rust#disable_keymap=1
+#     nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
+#     nmap <buffer> K  <plug>DeopleteRustShowDocumentation
+# '''
 
 #-----------------------------------------
 # fzf
@@ -101,4 +101,41 @@ on_i = 1
 on_ft = 'json'
 hook_source = '''
   let g:vim_json_syntax_conceal = 0
+'''
+
+# go
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_source = '''
+  let g:go_snippet_engine = "neosnippet"
+  let g:go_list_type = "quickfix"
+  let g:go_def_mapping_enabled = 0
+  let g:go_fmt_command = "goimports"
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+merged = '0'
+hook_source = '''
+source /Users/yamagishiryu/.config/nvim/coc-setting.vim
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+let g:coc_snippet_next = '<tab>'
 '''

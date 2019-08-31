@@ -6,7 +6,24 @@
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
-      "filetypes": ["go"]
-    }
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "diagnostics": true,
+        "formatTool": "goimports",
+        "lintTool": "golint"
+      }
+    },
+    "elmLS": {
+      "command": "elm-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "runtime": "node",
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test"
+      }
+    }  
   }
 }

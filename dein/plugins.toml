@@ -147,11 +147,10 @@ hook_source = '''
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-# go
+# elm
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
+repo = 'ElmCast/elm-vim'
+on_ft = 'elm'
 hook_source = '''
-  let g:go_snippet_engine = "neosnippet"
-  let g:go_list_type = "quickfix"
+  let g:elm_setup_keybindings = 0
 '''
