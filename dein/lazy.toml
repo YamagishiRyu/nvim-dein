@@ -67,7 +67,7 @@ repo = 'junegunn/fzf.vim'
 depends = ['fzf']
 on_path = ['.*']
 hook_source = '''
-    let g:fzf_action = { 'enter': 'tab split'}
+    let g:fzf_action = { 'enter': 'tab split' }
     let g:fzf_buffers_jump = 1
     let g:fzf_tags_command = 'ctags -R ./.git/tags .'
     command! -bang -nargs=? -complete=dir Files

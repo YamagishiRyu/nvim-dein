@@ -123,6 +123,10 @@ hook_add = '''
 #-----------------------------------------
 # syntax
 #-----------------------------------------
+# all syntax
+#[[plugins]]
+#repo = 'sheerun/vim-polyglot'
+
 # tex
 [[plugins]]
 repo = 'gi1242/vim-tex-syntax'
