@@ -1,6 +1,7 @@
 {
   "suggest.noselect": false,
   "suggest.autoTrigger": "always",
+  "suggest.timeout": 5000,
   "suggest.preferCompleteThanJumpPlaceholder":true,
   "languageserver": {
     "golang": {
@@ -24,6 +25,21 @@
         "elmFormatPath": "elm-format",
         "elmTestPath": "elm-test"
       }
-    }  
+    },
+    "sorbet": {
+      "command": "srb",
+      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
+      "filetypes": ["ruby"],
+      "rootPatterns": ["sorbet/config"],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "swift": {
+      "command": "sourcekit-lsp",
+      "args": [],
+      "filetypes": ["swift"],
+      "initializationOptions": {},
+      "settings": {}
+    }
   }
 }
