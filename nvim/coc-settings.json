@@ -1,13 +1,15 @@
 {
   "suggest.noselect": false,
   "suggest.autoTrigger": "always",
-  "suggest.timeout": 5000,
+  "suggest.timeout": 1000,
   "suggest.preferCompleteThanJumpPlaceholder":true,
   "languageserver": {
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
       "filetypes": ["go"],
+      "disableWorkspaceFolders": true,
+      "args": ["serve", "-debug", "0.0.0.0:8484", "-rpc.trace"],
       "initializationOptions": {
         "diagnostics": true,
         "formatTool": "goimports",
@@ -40,6 +42,34 @@
       "filetypes": ["swift"],
       "initializationOptions": {},
       "settings": {}
+    },
+    "digestif": {
+      "command": "digestif",
+      "filetypes": ["tex", "plaintex", "context"]
+    },
+    "sql": {
+      "command": "sql-language-server",
+      "args" : ["up", "--method", "stdio"],
+      "filetypes": ["sql", "mysql"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
     }
-  }
+  },
+  "python.linting.pylintArgs": [
+    "--disable=E0401, C0111, C0303, C0103, W0621, C0301, C0330"
+  ]
 }

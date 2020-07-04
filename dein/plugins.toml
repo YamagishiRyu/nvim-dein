@@ -15,8 +15,8 @@ hook_add = '''
 '''
 
 # snippet
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
 
 # indent highlight
 [[plugins]]

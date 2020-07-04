@@ -1,22 +1,113 @@
 # lazy reading
 
 #-----------------------------------------
-# neosnippet
+# fzf
 #-----------------------------------------
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'junegunn/fzf.vim'
+depends = ['fzf']
+on_path = ['.*']
 hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-  let g:neosnippet#enable_completed_snippet = 1
+    let g:fzf_action = { 'enter': 'tab split' }
+    let g:fzf_buffers_jump = 1
+    let g:fzf_tags_command = 'ctags -R ./.git/tags .'
+    command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+    nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
+
+# yankee
+[[plugins]]
+repo = 'n04ln/yankee.vim'
+on_path = ['.*']
+hook_source = '''
+    let g:yankee_buf_list = ['"b', '"c', '"x', '"h', '"z']
+    vnoremap <silent> Y :call yankee#yank()<CR>
+    nnoremap <silent> P :call yankee#paste()<CR>
+'''
+
+#-----------------------------------------
+# coc
+#-----------------------------------------
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
+on_path = ['.*']
+hook_source = '''
+source /Users/yamagishiryu/.config/nvim/coc-setting.vim
+'''
+
+[[plugins]]
+repo = 'kizza/actionmenu.nvim'
+hook_source = '''
+source ~/.config/nvim/actionmenu-setting.vim
+nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
+'''
+
+#-----------------------------------------
+# insertion plugin
+#-----------------------------------------
+[[plugins]]
+repo = 'cohama/lexima.vim'
 on_i = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+
+[[plugins]]
+repo = 'wellle/targets.vim'
+
+#-----------------------------------------
+# syntax
+#-----------------------------------------
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_i = 1
+on_ft = 'json'
+hook_source = '''
+  let g:vim_json_syntax_conceal = 0
+'''
+
+# go
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_source = '''
+  let g:go_snippet_engine = "neosnippet"
+  let g:go_list_type = "quickfix"
+  let g:go_def_mapping_enabled = 0
+  let g:go_fmt_command = "goimports"
+'''
+
+#-----------------------------------------
+# ctags
+#-----------------------------------------
+# [[plugins]]
+# repo = 'szw/vim-tags'
+# hook_source = '''
+#   nnoremap <C-]> g<C-]>
+# '''
+
+#-----------------------------------------
+# neosnippet
+#-----------------------------------------
+# [[plugins]]
+# repo = 'Shougo/neosnippet'
+# hook_source = '''
+#   imap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   smap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   xmap <C-k> <Plug>(neosnippet_expand_target)
+#   if has('conceal')
+#     set conceallevel=2 concealcursor=niv
+#   endif
+#   let g:neosnippet#enable_completed_snippet = 1
+# '''
+# on_i = 1
+# on_ft = ['snippet']
+# depends = ['neosnippet-snippets']
 
 #-----------------------------------------
 # deoplete
@@ -59,83 +150,3 @@ depends = ['neosnippet-snippets']
 #     nmap <buffer> K  <plug>DeopleteRustShowDocumentation
 # '''
 
-#-----------------------------------------
-# fzf
-#-----------------------------------------
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-depends = ['fzf']
-on_path = ['.*']
-hook_source = '''
-    let g:fzf_action = { 'enter': 'tab split' }
-    let g:fzf_buffers_jump = 1
-    let g:fzf_tags_command = 'ctags -R ./.git/tags .'
-    command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
-    nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
-'''
-
-#-----------------------------------------
-# ctags
-#-----------------------------------------
-# [[plugins]]
-# repo = 'szw/vim-tags'
-# hook_source = '''
-#   nnoremap <C-]> g<C-]>
-# '''
-
-#-----------------------------------------
-# syntax
-#-----------------------------------------
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
-
-[[plugins]]
-repo = 'elzr/vim-json'
-on_i = 1
-on_ft = 'json'
-hook_source = '''
-  let g:vim_json_syntax_conceal = 0
-'''
-
-# go
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-hook_source = '''
-  let g:go_snippet_engine = "neosnippet"
-  let g:go_list_type = "quickfix"
-  let g:go_def_mapping_enabled = 0
-  let g:go_fmt_command = "goimports"
-'''
-
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
-merged = '0'
-hook_source = '''
-source /Users/yamagishiryu/.config/nvim/coc-setting.vim
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-let g:coc_snippet_next = '<tab>'
-'''
