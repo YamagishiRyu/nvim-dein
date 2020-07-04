@@ -39,7 +39,6 @@ filetype plugin indent on
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
-
 " dein {{{
 let s:dein_cache_dir = g:cache_home . '/dein'
 
@@ -85,6 +84,9 @@ if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
 " }}}
+
+let g:python_host_prog = expand($PYENV_ROOT . '/versions/2.7.15/bin/python')
+let g:python3_host_prog= expand($PYENV_ROOT . '/versions/anaconda3-5.3.1/bin/python')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim
