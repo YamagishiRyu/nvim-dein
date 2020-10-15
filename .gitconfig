@@ -1,0 +1,23 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = YamagishiRyu
+#	email = bubusu.ryu@gmail.com
+[user]
+	name = YamagishiRyu
+	email = bubusu.ryu@gmail.com
+[core]
+	editor = nvim
+[merge]
+	ff = false
+[pull]
+	ff = only
+[merge "mergepbx"]
+	name = Xcode project files merger
+	driver = mergepbx %O %A %B
+[init]
+	templatedir = /Users/yamagishiryu/.git-templates
+[commit]
+	template = /Users/yamagishiryu/.config/.commit_template
+[color]
+	ui = 1
