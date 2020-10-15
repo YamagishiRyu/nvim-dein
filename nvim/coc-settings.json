@@ -43,10 +43,6 @@
       "initializationOptions": {},
       "settings": {}
     },
-    "digestif": {
-      "command": "digestif",
-      "filetypes": ["tex", "plaintex", "context"]
-    },
     "sql": {
       "command": "sql-language-server",
       "args" : ["up", "--method", "stdio"],
@@ -70,6 +66,6 @@
     }
   },
   "python.linting.pylintArgs": [
-    "--disable=E0401, C0111, C0303, C0103, W0621, C0301, C0330"
+    "--disable=E0401, C0111, C0303, C0103, W0621, C0301, C0330, W0703"
   ]
 }
