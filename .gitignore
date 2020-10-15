@@ -3,4 +3,5 @@
 !/dein/
 !/nvim/
 !iterm.json
+!setting.sh
 !.*
