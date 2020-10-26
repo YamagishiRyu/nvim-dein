@@ -52,17 +52,6 @@
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
       "initializationOptions": {}
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
     }
   },
   "python.linting.pylintArgs": [
