@@ -4,6 +4,8 @@ export PROMPT_COMMAND="echo"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow --glob "!.git/*"'
 set -o vi
 export PATH=~/.local/bin:$PATH
+export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 # alias setting
 alias vi='nvim'
@@ -31,4 +33,9 @@ alias ll='ls -la'
 # library setting
 eval "$(gh completion -s zsh)"
 eval "$(direnv hook zsh)"
-source /Users/yamagishiryu/Documents/cloud_doc_for_macbook_pro/test/sh/z/z.sh
+eval "$(anyenv init -)"
+eval "$(/usr/libexec/path_helper)"
+source /Users/yamagishiryu/.local/z/z.sh
+source ~/.bash_functions
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'

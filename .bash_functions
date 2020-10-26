@@ -13,8 +13,8 @@ function gadd() {
     local selected
     selected=$(git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" --preview-window top:70% | awk '{print $2}')
     if [[ -n "$selected" ]]; then
-        selected=$(tr '\n' ' ' <<< "$selected")
-        git add $selected
+        echo -n $selected | xargs git add
+        selected=$(echo -n "$selected" | tr '\n' ' ')
         echo "Completed: git add $selected"
     fi
 }
