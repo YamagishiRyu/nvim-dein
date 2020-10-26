@@ -20,11 +20,11 @@ brew install mas
 brew install mysql-client
 brew install tree
 brew install ripgrep
-brew install gcloud
 brew install ctags
 brew install htop
-brew isntall direnv
+brew install direnv
 brew install git-secrets
+brew install docker-compose
 
 #---------------------------------------
 # brew cask install
@@ -47,6 +47,8 @@ brew cask install google-chrome
 brew cask install firefox
 brew cask install zotero
 brew cask install zoomus
+brew cask install google-cloud-sdk
+brew cask install mactex
 # brew cask install karabiner-elements
 # brew cask install discord
 # brew cask install river-sparkle
@@ -82,7 +84,7 @@ cp .latexmkrc ~/.latexmkrc
 # sudo tlmgr install latexmk # to install latexmk
 
 # vmd
-npm install -g vmd
+# npm install -g vmd # npm もとから入ってない
 
 # anyenv
 anyenv init
@@ -90,3 +92,17 @@ anyenv install --init
 
 # git secrets
 git secrets --register-aws --global
+
+# pip for default python 2.7
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+pip install neovim
+
+# conda setting
+conda init
+conda config --set auto_activate_base False
+conda activate base
+pip install neovim
+
+# neovim setting
+# after installing nodenv and node
