@@ -17,7 +17,6 @@ hook_source = '''
       \ call fzf#vim#grep(
       \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
       \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
-    nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
 # yankee
@@ -72,15 +71,15 @@ hook_source = '''
 '''
 
 # go
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-hook_source = '''
-  let g:go_snippet_engine = "neosnippet"
-  let g:go_list_type = "quickfix"
-  let g:go_def_mapping_enabled = 0
-  let g:go_fmt_command = "goimports"
-'''
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# on_ft = ['go']
+# hook_source = '''
+#   let g:go_snippet_engine = "neosnippet"
+#   let g:go_list_type = "quickfix"
+#   let g:go_def_mapping_enabled = 0
+#   let g:go_fmt_command = "goimports"
+# '''
 
 #-----------------------------------------
 # ctags

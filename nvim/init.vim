@@ -86,7 +86,9 @@ endif
 " }}}
 
 let g:python_host_prog = expand('/usr/bin/python')
-let g:python3_host_prog= expand('/usr/local/Caskroom/miniconda/base/bin/python')
+let g:python3_host_prog= expand('~/.anyenv/envs/pyenv/shims/python3.9')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim
+
+let g:tex_conceal = ''

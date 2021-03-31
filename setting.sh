@@ -17,7 +17,7 @@ brew install awscli
 brew install gh
 brew install jq
 brew install mas
-brew install mysql-client
+brew install mysql
 brew install tree
 brew install ripgrep
 brew install ctags
@@ -25,13 +25,13 @@ brew install htop
 brew install direnv
 brew install git-secrets
 brew install docker-compose
+brew install pipenv
 
 #---------------------------------------
 # brew cask install
 #---------------------------------------
 brew cask install iterm2
 brew cask install slack
-brew cask install miniconda
 brew cask install skype
 brew cask install deepl
 brew cask install cyberduck
@@ -96,12 +96,6 @@ git secrets --register-aws --global
 # pip for default python 2.7
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
-pip install neovim
-
-# conda setting
-conda init
-conda config --set auto_activate_base False
-conda activate base
 pip install neovim
 
 # neovim setting

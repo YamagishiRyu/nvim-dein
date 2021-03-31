@@ -45,3 +45,29 @@ fco_preview() {
   git checkout $(awk '{print $2}' <<<"$target" )
 }
 alias gckb=fco_preview
+
+function badge() {
+    printf "\e]1337;SetBadgeFormat=%s\a"\
+    $(echo -n "$1" | base64)
+}
+
+function ssh_local() {
+    local ssh_config=~/.ssh/config
+    local server=$(cat $ssh_config | grep "Host " | sed "s/Host //g" | fzf)
+    if [ -z "$server" ]; then
+        return
+    fi
+    badge $server
+    ssh $server
+}
+alias ss=ssh_local
+
+function select-history() {
+    local command=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+    if [ -z "$command" ]; then
+        return
+    fi
+    echo $command
+    eval "$command"
+}
+alias hf=select-history
