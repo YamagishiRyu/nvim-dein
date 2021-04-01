@@ -30,25 +30,25 @@ brew install pipenv
 #---------------------------------------
 # brew cask install
 #---------------------------------------
-brew cask install iterm2
-brew cask install slack
-brew cask install skype
-brew cask install deepl
-brew cask install cyberduck
-brew cask install gimp
-brew cask install skitch
-brew cask install skim
-brew cask install inkscape
-brew cask install postman
-brew cask install postgres
-brew cask install docker
-brew cask install adobe-acrobat-reader
-brew cask install google-chrome
-brew cask install firefox
-brew cask install zotero
-brew cask install zoomus
-brew cask install google-cloud-sdk
-brew cask install mactex
+brew install iterm2
+brew install slack
+brew install deepl
+brew install skitch
+brew install skim
+brew install postman
+brew install postgres
+brew install docker
+brew install firefox
+brew install zoom
+brew install google-cloud-sdk
+#brew cask install cyberduck
+#brew cask install gimp
+#brew cask install inkscape
+#brew cask install adobe-acrobat-reader
+#brew cask install google-chrome
+#brew cask install zotero
+#brew cask install skype
+#brew cask install mactex
 # brew cask install karabiner-elements
 # brew cask install discord
 # brew cask install river-sparkle
@@ -67,20 +67,13 @@ brew cask install mactex
 #---------------------------------------
 # Preference file 
 #---------------------------------------
-ln -s .bash_profile ~/.bash_profile
-ln -s .bashrc ~/.bashrc
-ln -s .bash_functions ~/.bash_functions
-ln -s .zprofile ~/.zprofile
-ln -s .latexmk ~/.latexmk
-ln -s .fzf.bash ~/.fzf.bash
-ln -s .fzf.zsh ~/.fzf.zsh
-cp .gitconfig ~/.gitconfig
+/bin/bash ~/.config/bootstrap/link.sh
 
 #---------------------------------------
 # Library Setting
 #---------------------------------------
 # latexmk
-cp .latexmkrc ~/.latexmkrc
+#cp .latexmkrc ~/.latexmkrc
 # sudo tlmgr install latexmk # to install latexmk
 
 # vmd
@@ -100,3 +93,5 @@ pip install neovim
 
 # neovim setting
 # after installing nodenv and node
+
+git clone https://github.com/rupa/z.git ~/.local

@@ -52,7 +52,5 @@ eval "$(direnv hook zsh)"
 eval "$(anyenv init -)"
 eval "$(/usr/libexec/path_helper)"
 eval "$(rbenv init -)"
-source /Users/yamagishiryu/.local/z/z.sh
+source ~/.local/z/z.sh
 source ~/.bash_functions
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
