@@ -16,8 +16,10 @@
 	name = Xcode project files merger
 	driver = mergepbx %O %A %B
 [init]
-	templatedir = /Users/yamagishiryu/.git-templates
+	templatedir = ~/.git-templates
 [commit]
-	template = /Users/yamagishiryu/.config/.commit_template
+	template = ~/.config/.commit_template
 [color]
 	ui = 1
+[url "git@github.com"]
+	insteadOf = https://github.com/
