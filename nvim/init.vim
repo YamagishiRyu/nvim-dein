@@ -11,13 +11,11 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=~/.config/nvim/plugins/
 set exrc
 set secure
-
-colorscheme ron
+syntax enable
+let mapleader = "\<Space>"
 
 :imap <c-h> <Left>
 :imap <c-l> <Right>
-:vmap <c-m> :s/\n//g<CR>:noh<CR>
-:vmap <c-i> :s/.\{35}/&\r/g<CR>:noh<CR>
 
 " file type
 augroup fileTypeIndent
@@ -61,8 +59,8 @@ endif
 
 " dein.vim settings
 let g:dein#install_max_processes = 16
-let g:dein#install_progress_type = 'title'
-let g:dein#install_message_type = 'none'
+let g:dein#install_progress_type = 'echo'
+let g:dein#install_message_type = 'echo'
 let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)
@@ -90,5 +88,4 @@ let g:python3_host_prog= expand('~/.anyenv/envs/pyenv/shims/python3.9')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim
-
 let g:tex_conceal = ''
