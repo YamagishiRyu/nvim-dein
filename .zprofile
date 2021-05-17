@@ -8,8 +8,6 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export GOPATH="$HOME/go/(goenv versions --bare)"
-export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export eval
 
@@ -23,8 +21,7 @@ setopt hist_ignore_dups
 alias vi='nvim'
 alias vf='vi $(fzf --preview "cat {}")'
 alias ba='vi ~/.config/.bash_profile'
-alias pa='vi ~/.config/dein/plugins.toml'
-alias gs='git status'
+alias pa='vi ~/.config/dein/plugins.toml' alias gs='git status'
 # alias ga='git add'
 alias gu='git push -u origin'
 alias gb='git branch'
@@ -50,7 +47,9 @@ alias -g nt='&& osascript ~/.config/notification.scpt'
 eval "$(gh completion -s zsh)"
 eval "$(direnv hook zsh)"
 eval "$(anyenv init -)"
-eval "$(/usr/libexec/path_helper)"
 eval "$(rbenv init -)"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+eval "$(/usr/libexec/path_helper)"
 source ~/.local/z/z.sh
 source ~/.bash_functions

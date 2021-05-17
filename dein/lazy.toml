@@ -38,7 +38,7 @@ rev = 'release'
 merged = '0'
 on_path = ['.*']
 hook_source = '''
-source /Users/yamagishiryu/.config/nvim/coc-setting.vim
+source ~/.config/nvim/coc-setting.vim
 '''
 
 [[plugins]]

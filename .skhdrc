@@ -13,17 +13,17 @@ ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
 # ウィンドウの選択・操作
 #------------------------------------------------------------
 # ウィンドウを選択する
-cmd - j : yabai -m window --focus prev
-cmd - l : yabai -m window --focus next
+#cmd - j : yabai -m window --focus prev
+#cmd - l : yabai -m window --focus next
 
 # ウィンドウを入れ替える
-ctrl + cmd - w : yabai -m window --swap west
-ctrl + cmd - s : yabai -m window --swap south
-ctrl + cmd - n : yabai -m window --swap north
-ctrl + cmd - e : yabai -m window --swap east
+#ctrl + cmd - w : yabai -m window --swap west
+#ctrl + cmd - s : yabai -m window --swap south
+#ctrl + cmd - n : yabai -m window --swap north
+#ctrl + cmd - e : yabai -m window --swap east
 
 # オフセット有無
-alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
+#alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 #------------------------------------------------------------
 # ウィンドウのサイズ調整
