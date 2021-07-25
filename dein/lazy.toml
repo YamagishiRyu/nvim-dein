@@ -64,30 +64,36 @@ merged = '0'
 # syntax
 #-----------------------------------------
 [[plugins]]
+repo = 'p00f/nvim-ts-rainbow'
+on_path = ['.*']
+merged = '0'
+depends = ['nvim-treesitter']
+
+[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged='0'
 on_path = ['.*']
 hook_source = '''
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
   highlight = {
     enable = true,
     disable = {
-      'markdown'
+      'lua',
+      'markdown',
     }
   },
   indent = {
-    enable = true
+    enable = true,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+  }
 }
 EOF
 '''
-
-# [[plugins]]
-# repo = 'p00f/nvim-ts-rainbow'
-# on_path = ['.*']
-# merged = '0'
-# depends = ['nvim-treesitter']
 
 # markdown
 [[plugins]]

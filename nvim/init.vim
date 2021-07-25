@@ -11,7 +11,6 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=~/.config/nvim/plugins/
 set exrc
 set secure
-syntax enable
 let mapleader = "\<Space>"
 
 :imap <c-h> <Left>
@@ -24,7 +23,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=0 shiftwidth=4 noexpandtab
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 

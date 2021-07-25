@@ -8,7 +8,7 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export GOPATH="$HOME/go/(goenv versions --bare)"
+export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export eval
@@ -54,3 +54,9 @@ eval "$(/usr/libexec/path_helper)"
 eval "$(rbenv init -)"
 source ~/.local/z/z.sh
 source ~/.bash_functions
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc'; fi
