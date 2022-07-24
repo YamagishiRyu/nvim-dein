@@ -78,3 +78,15 @@ hook_add = '''
   nmap <Leader>w <Plug>(easymotion-overwin-w)
   nmap g/ <Plug>(easymotion-sn)
 '''
+
+#-----------------------------------------
+# syntax highlight
+#-----------------------------------------
+[[plugins]]
+repo = 'Yagua/nebulous.nvim'
+hook_add = '''
+  let g:nb_style = "twilight"
+  augroup my_group
+    au VimEnter * nested colorscheme nebulous
+  augroup END
+'''

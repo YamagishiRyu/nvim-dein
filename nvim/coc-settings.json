@@ -3,18 +3,6 @@
   "suggest.autoTrigger": "always",
   "suggest.timeout": 1000,
   "suggest.preferCompleteThanJumpPlaceholder":true,
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "args": ["serve", "-debug", "0.0.0.0:8484", "-rpc.trace"],
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "disableWorkspaceFolders": true,
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
-  },
   "python.linting.pylintArgs": [
     "--disable=E0401, C0111, C0303, C0103, W0621, C0301, C0330, W0703, E1101, R0914"
   ],

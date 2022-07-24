@@ -81,7 +81,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = {
       'lua',
-      'markdown',
     }
   },
   indent = {

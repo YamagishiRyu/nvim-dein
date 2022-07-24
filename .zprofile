@@ -1,7 +1,7 @@
 # Shell Setting
 export EDITOR=zsh
 export PROMPT_COMMAND="echo"
-export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow --glob "!{*node_modules/*,.git/*}"'
 set -o vi
 export PATH="~/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
@@ -52,6 +52,7 @@ eval "$(direnv hook zsh)"
 eval "$(anyenv init -)"
 eval "$(/usr/libexec/path_helper)"
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 source ~/.local/z/z.sh
 source ~/.bash_functions
 
