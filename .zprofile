@@ -60,5 +60,5 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 eval "$(/usr/libexec/path_helper)"
 
-source ~/.local/z/z.sh
+source ~/.local/z.sh
 source ~/.bash_functions
