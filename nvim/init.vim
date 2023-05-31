@@ -7,7 +7,7 @@ set t_Co=256
 set mouse=a
 set lazyredraw
 set completeopt-=preview
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 set rtp+=~/.config/nvim/plugins/
 set exrc
 set secure
@@ -86,7 +86,7 @@ endif
 " }}}
 
 let g:python_host_prog = expand('/usr/bin/python')
-let g:python3_host_prog= expand('~/.anyenv/envs/pyenv/shims/python3.9')
+let g:python3_host_prog= expand('/Users/ryu/.pyenv/shims/python')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim

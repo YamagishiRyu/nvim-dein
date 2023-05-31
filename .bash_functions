@@ -71,3 +71,14 @@ function select-history() {
     eval "$command"
 }
 alias hf=select-history
+
+func open-memo() {
+  local day=$(date +'# %Y/%m/%d')
+  local header=$(head -n 1 ~/memo/memo.md)
+  if [ $header != $day ]; then
+    echo -e "$day\n\n$(cat ~/memo/memo.md)" > ~/memo/memo.md
+  fi
+  cd ~/memo
+  vi memo.md
+}
+alias memo=open-memo

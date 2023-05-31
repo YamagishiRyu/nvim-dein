@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == */Users/ryu/.cache/dein/repos/github.com/junegunn/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/Users/ryu/.cache/dein/repos/github.com/junegunn/fzf/bin"
+  PATH="${PATH:+${PATH}:}/Users/ryu/.cache/dein/repos/github.com/junegunn/fzf/bin"
 fi
 
 # Auto-completion
