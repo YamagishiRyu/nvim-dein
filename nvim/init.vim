@@ -12,8 +12,6 @@ set rtp+=~/.config/nvim/plugins/
 set exrc
 set secure
 
-colorscheme ron
-
 :imap <c-h> <Left>
 :imap <c-l> <Right>
 :vmap <c-m> :s/\n//g<CR>:noh<CR>
@@ -90,5 +88,7 @@ let g:python3_host_prog= expand('/Users/ryu/.pyenv/shims/python')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim
+
+colorscheme molokai
 
 let g:tex_conceal = ''
