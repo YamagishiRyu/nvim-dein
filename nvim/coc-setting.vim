@@ -60,6 +60,9 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" coc disable in markdown
+autocmd FileType markdown let b:coc_suggest_disable = 1
+
 let g:coc_snippet_next = '<tab>'
 
 hi CocErrorFloat ctermfg=0
