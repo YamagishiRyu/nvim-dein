@@ -53,6 +53,7 @@ eval "$(anyenv init -)"
 eval "$(/usr/libexec/path_helper)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(pyenv init -)"
 source ~/.local/z/z.sh
 source ~/.bash_functions
 
@@ -61,3 +62,4 @@ if [ -f '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ya
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc'; fi
+

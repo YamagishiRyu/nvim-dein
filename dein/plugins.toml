@@ -90,3 +90,9 @@ hook_add = '''
     au VimEnter * nested colorscheme nebulous
   augroup END
 '''
+
+#-----------------------------------------
+# GitHub Copilot
+#-----------------------------------------
+[[plugins]]
+repo = 'github/copilot.vim'
