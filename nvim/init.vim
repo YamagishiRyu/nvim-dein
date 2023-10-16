@@ -11,11 +11,10 @@ set rtp+=/opt/homebrew/opt/fzf
 set rtp+=~/.config/nvim/plugins/
 set exrc
 set secure
+let mapleader = "\<Space>"
 
 :imap <c-h> <Left>
 :imap <c-l> <Right>
-:vmap <c-m> :s/\n//g<CR>:noh<CR>
-:vmap <c-i> :s/.\{35}/&\r/g<CR>:noh<CR>
 
 " file type
 augroup fileTypeIndent
@@ -24,7 +23,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=0 shiftwidth=4 noexpandtab
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
@@ -59,8 +58,8 @@ endif
 
 " dein.vim settings
 let g:dein#install_max_processes = 16
-let g:dein#install_progress_type = 'title'
-let g:dein#install_message_type = 'none'
+let g:dein#install_progress_type = 'echo'
+let g:dein#install_message_type = 'echo'
 let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)

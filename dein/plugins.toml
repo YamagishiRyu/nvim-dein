@@ -1,28 +1,12 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# Color
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-  au MyAutoCmd VimEnter * highlight Comment ctermfg=63
-  au MyAutoCmd VimEnter * highlight Visual ctermfg=236
-  au MyAutoCmd VimEnter * highlight MatchParen ctermfg=226 ctermbg=24
-  au MyAutoCmd VimEnter * highlight Cursor ctermfg=2
-  au MyAutoCmd VimEnter * highlight Special ctermfg=225
-  au MyAutoCmd VimEnter * highlight Directory ctermfg=227
-  au MyAutoCmd VimEnter * highlight Search ctermbg=5
-'''
-
-# snippet
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-
 # indent highlight
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
   let g:indentLine_color_term = 93
+  let g:indentLine_bgcolor_term = 236
   let g:indentLine_char = '¦'
   let g:indentLine_leadingSpaceChar = '.'
   let g:indentLine_leadingSpaceEnabled = 1
@@ -79,37 +63,13 @@ repo = 'tpope/vim-rhubarb'
 [[plugins]]
 repo = 'nelstrom/vim-visual-star-search'
 
-# R
-repo = 'jalvesaq/Nvim-R'
-on_ft='r'
-
-#-----------------------------------------
-# debug
-#-----------------------------------------
-# go 
-[[plugins]]
-repo = 'sebdah/vim-delve'
-
-#-----------------------------------------
-# fzf
-#-----------------------------------------
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-merged = 0
-rtp = ''
-on_path = ['.*']
-hook_source = '''
-  let g:fzf_layout = { 'down': '~60%' }
-  let g:fzf_buffer_jump = 1
-'''
-
 #-----------------------------------------
 # motion
 #-----------------------------------------
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
+  map <Space> <Plug>(easymotion-s2)
   let g:EasyMotion_enter_jump_first = 1
   map <Leader><Leader> <Plug>(easymotion-repeat)
   map  <Leader>f <Plug>(easymotion-bd-f)
@@ -118,53 +78,24 @@ hook_add = '''
   map <Leader>l <Plug>(easymotion-bd-jk)
   nmap <Leader>l <Plug>(easymotion-overwin-line)
   map  <Leader>w <Plug>(easymotion-bd-w)
-  map <Space> <Plug>(easymotion-s2)
   nmap <Leader>w <Plug>(easymotion-overwin-w)
   nmap g/ <Plug>(easymotion-sn)
 '''
 
 #-----------------------------------------
-# syntax
+# syntax highlight
 #-----------------------------------------
-# all syntax
-#[[plugins]]
-#repo = 'sheerun/vim-polyglot'
-
-# tex
 [[plugins]]
-repo = 'gi1242/vim-tex-syntax'
-
-# markdown
-[[plugins]]
-repo = 'gabrielelana/vim-markdown'
+repo = 'Yagua/nebulous.nvim'
 hook_add = '''
-  let g:markdown_enable_spell_checking = 0
+  let g:nb_style = "twilight"
+  augroup my_group
+    au VimEnter * nested colorscheme nebulous
+  augroup END
 '''
 
-# rust
+#-----------------------------------------
+# GitHub Copilot
+#-----------------------------------------
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-hook_source = '''
-  let g:rustfmt_autosave = 1
-'''
-
-# toml
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-# elm
-[[plugins]]
-repo = 'ElmCast/elm-vim'
-on_ft = 'elm'
-hook_source = '''
-  let g:elm_setup_keybindings = 0
-'''
-
-# typescript
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
+repo = 'github/copilot.vim'

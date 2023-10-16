@@ -1,13 +1,15 @@
 # Shell Setting
 export EDITOR=zsh
 export PROMPT_COMMAND="echo"
-export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow --glob "!{*node_modules/*,.git/*}"'
 export LANG=en_US.UTF-8 ## Vimでコピーした時に文字化けしないようにする
 set -o vi
 export PATH="~/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -56,9 +58,15 @@ eval "$(direnv hook zsh)"
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
+source ~/.local/z/z.sh
 eval "$(/usr/libexec/path_helper)"
 
 source ~/.local/z.sh
 source ~/.bash_functions
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc'; fi
+
