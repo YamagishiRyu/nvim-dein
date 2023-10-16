@@ -56,6 +56,9 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+
 # search
 [[plugins]]
 repo = 'nelstrom/vim-visual-star-search'

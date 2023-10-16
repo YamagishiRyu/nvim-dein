@@ -37,7 +37,7 @@ rev = 'release'
 merged = '0'
 on_path = ['.*']
 hook_source = '''
-source /Users/yamagishiryu/.config/nvim/coc-setting.vim
+source ~/.config/nvim/coc-setting.vim
 '''
 
 [[plugins]]
@@ -59,6 +59,13 @@ on_path = ['.*']
 repo = 'wellle/targets.vim'
 on_path = ['.*']
 merged = '0'
+
+#-----------------------------------------
+# whitespace
+#-----------------------------------------
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+on_i = 1
 
 #-----------------------------------------
 # syntax

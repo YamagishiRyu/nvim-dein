@@ -11,13 +11,16 @@ brew update
 #---------------------------------------
 brew install git
 brew install neovim
-brew install anyenv
+# brew install anyenv
+brew isntall rbenv
+brew install pyenv
 brew install fzf
 brew install awscli
 brew install gh
 brew install jq
 brew install mas
 brew install mysql
+brew install postgresql
 brew install tree
 brew install ripgrep
 brew install ctags
@@ -26,6 +29,7 @@ brew install direnv
 brew install git-secrets
 brew install docker-compose
 brew install pipenv
+brew install raycast
 
 #---------------------------------------
 # brew cask install
@@ -80,8 +84,8 @@ brew install google-cloud-sdk
 # npm install -g vmd # npm もとから入ってない
 
 # anyenv
-anyenv init
-anyenv install --init
+# anyenv init
+# anyenv install --init
 
 # git secrets
 git secrets --register-aws --global

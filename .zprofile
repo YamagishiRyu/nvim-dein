@@ -2,15 +2,17 @@
 export EDITOR=zsh
 export PROMPT_COMMAND="echo"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow --glob "!{*node_modules/*,.git/*}"'
+export LANG=en_US.UTF-8 ## Vimでコピーした時に文字化けしないようにする
 set -o vi
-export PATH="~/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="~/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export eval
 
 # history setting
@@ -32,8 +34,7 @@ alias gc='git commit'
 alias gal='git add . && git commit'
 alias gcb='git checkout -b'
 alias gck='git checkout'
-alias gcm='git checkout main'
-alias gcmr='git checkout master'
+alias gcm='git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')'
 alias gcd='git checkout develop'
 alias gd='git diff'
 alias gp='git pull'
@@ -45,16 +46,22 @@ alias hs='history | grep ssh'
 alias ca='conda activate'
 alias ll='ls -la'
 alias -g nt='&& osascript ~/.config/notification.scpt'
+alias bu='bundle install -j4'
+alias sd='kube sb sh -d bundle exec rails c'
+alias qd='kube qa sh -d bundle exec rails c'
+alias sp='bundle exec rspec -f p'
 
 # library setting
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(gh completion -s zsh)"
 eval "$(direnv hook zsh)"
-eval "$(anyenv init -)"
-eval "$(/usr/libexec/path_helper)"
-eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 source ~/.local/z/z.sh
+eval "$(/usr/libexec/path_helper)"
+
+source ~/.local/z.sh
 source ~/.bash_functions
 
 # The next line updates PATH for the Google Cloud SDK.
