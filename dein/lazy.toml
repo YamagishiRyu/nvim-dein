@@ -4,6 +4,10 @@
 # fzf
 #-----------------------------------------
 [[plugins]]
+repo = 'junegunn/fzf'
+on_path = ['.*']
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
 on_path = ['.*']
 hook_source = '''
