@@ -88,7 +88,7 @@ if has('vim_starting') && dein#check_install()
 endif
 " }}}
 
-let g:python3_host_prog= expand('/Users/yamagishiryu/.config/venv/bin/python3')
+let g:python3_host_prog= expand('/usr/bin/python3')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim
