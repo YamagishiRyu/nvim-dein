@@ -14,6 +14,7 @@ Macの設定リスト
     - [ ] Raycastの設定をimport
     - [ ] Arcをデフォルトブラウザに設定
     - [ ] スクショのフォルダをDocuments/screenshots以下に設定
+    - [ ] Karabiner-Elementsの設定をimport
 - [ ] Dev
     - [ ] xcode-select —install
     - [ ] ssh-keygenで公開鍵を作成し、Githubに登録
