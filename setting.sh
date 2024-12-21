@@ -1,5 +1,3 @@
-xcode-select --install
-
 #---------------------------------------
 # Install brew
 #---------------------------------------
@@ -9,86 +7,20 @@ brew update
 #---------------------------------------
 # brew install 
 #---------------------------------------
-brew install git
-brew install neovim
-# brew install anyenv
-brew isntall rbenv
-brew install pyenv
-brew install fzf
-brew install awscli
-brew install gh
-brew install jq
-brew install mas
-brew install mysql
-brew install postgresql
-brew install tree
-brew install ripgrep
-brew install ctags
-brew install htop
-brew install direnv
-brew install git-secrets
-brew install docker-compose
-brew install pipenv
-brew install raycast
+brew bundle --file ~/.config/Brewfile
 
 #---------------------------------------
-# brew cask install
+# oh my zsh
 #---------------------------------------
-brew install iterm2
-brew install slack
-brew install deepl
-brew install skitch
-brew install skim
-brew install postman
-brew install postgres
-brew install docker
-brew install firefox
-brew install zoom
-brew install google-cloud-sdk
-#brew cask install cyberduck
-#brew cask install gimp
-#brew cask install inkscape
-#brew cask install adobe-acrobat-reader
-#brew cask install google-chrome
-#brew cask install zotero
-#brew cask install skype
-#brew cask install mactex
-# brew cask install karabiner-elements
-# brew cask install discord
-# brew cask install river-sparkle
- 
-#---------------------------------------
-# Application to install
-#---------------------------------------
-# LINE
-# Pocket
-# Govid for YouTube
-# Toy viewer
-# Vimari
-# Comment Screen
-## Trello
-
-#---------------------------------------
-# Preference file 
-#---------------------------------------
-/bin/bash ~/.config/bootstrap/link.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #---------------------------------------
 # Library Setting
 #---------------------------------------
-# latexmk
-#cp .latexmkrc ~/.latexmkrc
-# sudo tlmgr install latexmk # to install latexmk
-
-# vmd
-# npm install -g vmd # npm もとから入ってない
-
-# anyenv
-# anyenv init
-# anyenv install --init
-
 # git secrets
-git secrets --register-aws --global
+# git secrets --register-aws --global
 
 # pip for default python 2.7
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -98,4 +30,9 @@ pip install neovim
 # neovim setting
 # after installing nodenv and node
 
-git clone https://github.com/rupa/z.git ~/.local
+git clone https://github.com/rupa/z.git
+
+#---------------------------------------
+# Preference file 
+#---------------------------------------
+/bin/bash ~/.config/bootstrap/link.sh

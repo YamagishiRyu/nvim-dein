@@ -1,8 +1,8 @@
 # Shell Setting
 export EDITOR=zsh
 export PROMPT_COMMAND="echo"
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-export FZF_BASE="/usr/local/bin/fzf"
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_BASE="/opt/homebrew/bin/fzf"
 export LANG=en_US.UTF-8 ## Vimでコピーした時に文字化けしないようにする
 set -o vi
 export PATH="~/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
@@ -13,8 +13,7 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
-# export PATH="/opt/homebrew/bin:$PATH" # path for M1 mac
-export eval
+eval "$(/usr/libexec/path_helper)" # 色々なPATHを通してくれる
 
 # history setting
 export HISTFILE="~/.zshhistory"
@@ -52,22 +51,14 @@ alias sd='kube sb sh -d bundle exec rails c'
 alias qd='kube qa sh -d bundle exec rails c'
 alias sp='bundle exec rspec -f p'
 
-# library setting
-# eval "$(/opt/homebrew/bin/brew shellenv)" # path for M1 mac
-eval "$(gh completion -s zsh)"
-eval "$(direnv hook zsh)"
-eval "$(nodenv init -)"
+# library initialize
+eval "$(/opt/homebrew/bin/brew shellenv)" # path for M1 mac
+# eval "$(direnv hook zsh)"
+# eval "$(nodenv init -)"
 # eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-# for rye
-. "$HOME/.rye/env"
-source ~/.local/z/z.sh
-eval "$(/usr/libexec/path_helper)"
+# eval "$(pyenv init -)"
+# . "$HOME/.rye/env" # rye
+source ~/z/z.sh
 
+# shell custom functions
 source ~/.bash_functions
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yamagishiryu/google-cloud-sdk/completion.zsh.inc'; fi

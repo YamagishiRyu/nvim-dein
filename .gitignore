@@ -6,4 +6,6 @@
 !setting.sh
 !bootstrap*
 !raycast.rayconfig
+!Brewfile
+!README.md
 !.*
