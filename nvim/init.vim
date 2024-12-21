@@ -7,11 +7,13 @@ set t_Co=256
 set mouse=a
 set lazyredraw
 set completeopt-=preview
-set rtp+=/opt/homebrew/opt/fzf
+set rtp+=/usr/local/opt/fzf
 set rtp+=~/.config/nvim/plugins/
 set exrc
 set secure
+" set mapleader. mapleader is various command's prefix
 let mapleader = "\<Space>"
+set termguicolors
 
 :imap <c-h> <Left>
 :imap <c-l> <Right>
@@ -32,6 +34,10 @@ autocmd FileType coq highlight SentToCoq ctermbg=17 guibg=#000080
 "md
 autocmd BufRead,BufNewFile *.md  setfiletype mkd
 filetype plugin indent on
+"json
+autocmd BufRead,BufNewFile *.json set conceallevel=0
+"yaml
+autocmd BufRead,BufNewFile *.yaml set conceallevel=0
 
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
@@ -82,12 +88,9 @@ if has('vim_starting') && dein#check_install()
 endif
 " }}}
 
-let g:python_host_prog = expand('/usr/bin/python')
-let g:python3_host_prog= expand('/Users/ryu/.pyenv/shims/python')
+let g:python3_host_prog= expand('/Users/yamagishiryu/.config/venv/bin/python3')
 
 " 自作commandを読み込む
 source ~/.config/nvim/commands.vim
-
-colorscheme molokai
 
 let g:tex_conceal = ''

@@ -7,15 +7,33 @@
 repo = 'junegunn/fzf.vim'
 on_path = ['.*']
 hook_source = '''
-    let g:fzf_action = { 'enter': 'tab split' }
-    let g:fzf_buffers_jump = 1
-    let g:fzf_tags_command = 'ctags -R ./.git/tags .'
-    command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+" fzf itself setting
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'enter': 'tab split'}
+
+" - Popup window (anchored to the bottom of the current window)
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.6, 'relative': v:true, 'yoffset': 1.0 } }
+
+" Initialize configuration dictionary
+let g:fzf_vim = {}
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_vim.buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_vim.commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_vim.tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_vim.commands_expect = 'alt-enter,ctrl-x'
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 '''
 
 # yankee
@@ -68,35 +86,71 @@ repo = 'ntpeters/vim-better-whitespace'
 on_i = 1
 
 #-----------------------------------------
-# syntax
+# coloring color code
 #-----------------------------------------
 [[plugins]]
-repo = 'p00f/nvim-ts-rainbow'
-on_path = ['.*']
-merged = '0'
-depends = ['nvim-treesitter']
+repo = 'norcalli/nvim-colorizer.lua'
+on_i = 1
+hook_source = '''
+lua <<EOF
+require'colorizer'.setup(
+  filetypes= { "*" },
+  options = {
+    tailwind = true,
+    mode = 'background'
+  }
+)
+EOF
+'''
 
-[[plugins]]
+#-----------------------------------------
+# treesitter
+#-----------------------------------------
+[[plugins]] # treesitter
 repo = 'nvim-treesitter/nvim-treesitter'
 merged='0'
 on_path = ['.*']
 hook_source = '''
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = { "bash", "c", "css", "dockerfile", "go", "gomod", "html", "javascript", "json", "lua", "python", "regex", "ruby", "toml", "typescript", "yaml", "tsx"},
   highlight = {
     enable = true,
-    disable = {
-      'lua',
-    }
   },
   indent = {
     enable = true,
   },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-  }
+}
+EOF
+'''
+
+[[plugins]] # ()の色を変えてくれるやつ
+repo = 'HiPhish/rainbow-delimiters.nvim'
+on_path = ['.*']
+merged = '0'
+depends = ['nvim-treesitter']
+hook_source = '''
+let g:rainbow_delimiters = {
+  \ 'highlight': [
+     \ 'RainbowDelimiterRed',
+     \ 'RainbowDelimiterYellow',
+     \ 'RainbowDelimiterOrange',
+     \ 'RainbowDelimiterViolet',
+     \ 'RainbowDelimiterCyan',
+  \ ]
+\ }
+'''
+
+[[plugins]] # 今いる関数を表示してくれるやつ
+repo = 'nvim-treesitter/nvim-treesitter-context'
+on_path = ['.*']
+merged = '0'
+depends = ['nvim-treesitter']
+hook_source = '''
+lua <<EOF
+require'treesitter-context'.setup {
+  enable = true,
+  line_numbers = true,
 }
 EOF
 '''

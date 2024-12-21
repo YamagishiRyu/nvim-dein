@@ -1,5 +1,5 @@
 {
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "suggest.autoTrigger": "always",
   "suggest.timeout": 1000,
   "suggest.preferCompleteThanJumpPlaceholder":true,
@@ -25,5 +25,7 @@
   ],
   "solargraph.diagnostics": true,
   "python.jediEnabled": false,
-  "tsserver.log": "verbose"
+  "tsserver.log": "verbose",
+  "javascript.suggest.autoImports": true, 
+  "typescript.suggest.autoImports": true
 }

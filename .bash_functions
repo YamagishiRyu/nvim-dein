@@ -82,3 +82,10 @@ func open-memo() {
   vi memo.md
 }
 alias memo=open-memo
+
+func open-testcode() {
+  local day=$(date +'%Y%m%d')
+  cd ~/Documents/code
+  vi test_$day.py
+}
+alias p=open-testcode
