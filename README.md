@@ -1,0 +1,26 @@
+Macの設定リスト
+
+- [ ] Mac自体の設定
+    - [ ] 指定のApple IDで入る
+    - [ ] Software Updateを確認
+    - [ ] iCloud DriveとPhotoをオフにする
+    - [ ] Trackpad設定
+        - [ ] Accessibity → Pointer Control → Trackpad Optionsで Dragging Styleを `With Drag Lock`とする
+    - [ ] Dockの設定(`Automatically hide and show the Dock`を設定
+    - [ ] Keyboard shotcuts 
+        - [ ] command + space を言語変更に、control + spaceをspotlightに 
+        - [ ] move forcus to next windowを option + spaceに
+    - [ ] keyboardでkey repeat rateで最速に
+    - [ ] Raycastの設定をimport
+    - [ ] Arcをデフォルトブラウザに設定
+    - [ ] スクショのフォルダをDocuments/screenshots以下に設定
+- [ ] Dev
+    - [ ] xcode-select —install
+    - [ ] ssh-keygenで公開鍵を作成し、Githubに登録
+    - [ ] `git clone git@github.com:YamagishiRyu/nvim-dein .config`を実行
+    - [ ] ./setting.shを実行
+    - [ ] iterm
+        - [ ] 設定をimport
+        - [ ] keysからshift+deleteでshow/hideできるように
+    - [ ] vim
+        - [ ] python providerまわりのpathを設定
