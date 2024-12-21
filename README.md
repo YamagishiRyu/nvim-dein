@@ -19,8 +19,9 @@ Macの設定リスト
     - [ ] ssh-keygenで公開鍵を作成し、Githubに登録
     - [ ] `git clone git@github.com:YamagishiRyu/nvim-dein .config`を実行
     - [ ] ./setting.shを実行
-    - [ ] iterm
+    - [ ] iTerm2
         - [ ] 設定をimport
         - [ ] keysからshift+deleteでshow/hideできるように
+            - [ ] 設定後はiTerm2を再起動
     - [ ] vim
         - [ ] python providerまわりのpathを設定
