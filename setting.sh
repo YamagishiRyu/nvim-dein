@@ -29,6 +29,10 @@ pip install neovim
 
 # neovim setting
 # after installing nodenv and node
+npm install -g neovim
+# after installing golang
+go install golang.org/x/tools/gopls@latest
+
 
 git clone https://github.com/rupa/z.git
 
